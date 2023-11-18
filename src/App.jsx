@@ -1,12 +1,17 @@
-import {NavBar} from "./components/NavBar/NavBar.jsx"
-import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer.jsx"
+import { NavBar, ItemListContainer, ItemDetailContainer} from "./components"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 
 export const App = () => {
 
   return (
-<>
+<BrowserRouter>
 <NavBar/>
-<ItemListContainer greeting = {"¡Te damos la bienvenida a Friki Planet!"} />
-</>
+<Routes>
+    <Route path="/" element={<ItemListContainer />}/>
+    <Route path="/category/:category" element={<ItemListContainer />}/>
+    <Route path="/item/:id" element={<ItemDetailContainer />}/>
+</Routes>
+</BrowserRouter>
   )
 }

@@ -7,8 +7,9 @@ export const NavBar = () => {
             <div>
                 <button className= "btn btn-outline-info mx-2">Todos</button>
                 <button className= "btn btn-outline-info mx-2">Marvel</button>
-                <button className= "btn btn-outline-info mx-2">Peliculas</button>
-                <button className= "btn btn-outline-info mx-2">Star Wars</button>
+                <button className= "btn btn-outline-info mx-2">Avatar</button>
+                <button className= "btn btn-outline-info mx-2">Harry Potter</button>
+                <button className= "btn btn-outline-info mx-2">Suicide Squad</button>
             </div>
             <CartWidget/>
         </nav>
