@@ -13,10 +13,10 @@ export const ItemDetail = ({ description, image, price, stock, name }) => {
                     <h5 className="card-title">{name}</h5>
                     <img src={image} alt="" />
                     <p className="card-text"> {description} </p>
-                    <p>Precio: {price} </p>
+                    <b>Precio: {price} </b>
                     <ItemCount stock={stock} onAdd={onAdd} />
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
