@@ -16,15 +16,22 @@ export const ItemListContainer = () => {
         getProducts()
             .then((resp) => {
                 if (category) {
-                    const productsFilter = resp.filter(product => product.category === category)
-                    setProducts(productsFilter)
+                    const productsFilter = resp.filter((product) => product.category === category)
+                    // Verificar si hay productos filtrados antes de actualizar el estado
+                    if (productsFilter.length > 0) {
+                        setProducts(productsFilter)
+                    } else {
+                        // Si no hay productos filtrados, mantener la lista original
+                        setProducts(resp)
+                    }
                 } else {
+                    // Si no hay categoría seleccionada, mostrar todos los productos
                     setProducts(resp)
                 }
                 setIsLoading(false)
             })
             .catch((error) => console.log(error))
-    }, [])
+    }, [category])
 
     return (
         <>
