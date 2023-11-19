@@ -14,5 +14,5 @@ export const Item = ({ id, name, image, description }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

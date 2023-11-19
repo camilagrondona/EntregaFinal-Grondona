@@ -22,7 +22,9 @@ export const NavBar = () => {
                 <button className= "btn btn-outline-info mx-2">Suicide Squad</button>
                 </Link>
             </div>
+            <Link to="/cart">
             <CartWidget/>
+            </Link>
         </nav>
     )
 }

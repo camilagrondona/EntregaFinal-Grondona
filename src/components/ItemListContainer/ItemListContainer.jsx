@@ -31,7 +31,7 @@ export const ItemListContainer = () => {
                 setIsLoading(false)
             })
             .catch((error) => console.log(error))
-    }, [category])
+    }, [category]) // si el parámetro recibe una modificación, se ejecuta nuevamente el useEffect
 
     return (
         <>
