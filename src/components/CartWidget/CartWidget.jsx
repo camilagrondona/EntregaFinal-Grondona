@@ -1,10 +1,16 @@
-import { BsCart3 } from "react-icons/bs";
+import { BsCart3 } from "react-icons/bs"
+import { useCart } from "../../context/CartContext"
+import { Link } from 'react-router-dom'
 
 export const CartWidget = () => {
+    const { totalQuantity } = useCart()
+
     return (
-        <div className="d-flex">
-            <BsCart3 color ="#58ACFA" size ={30}/>
-            <p className = "mx-2">3</p>
-        </div>
+        <Link to="/cart">
+            <div className="d-flex">
+                <BsCart3 color="#58ACFA" size={30} />
+                <span>({totalQuantity})</span>
+            </div>
+        </Link>
     )
 }

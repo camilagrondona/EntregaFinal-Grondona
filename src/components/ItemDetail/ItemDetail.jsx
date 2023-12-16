@@ -1,9 +1,27 @@
 import { ItemCount } from "../ItemCount/ItemCount";
+import { useCart } from "../../context/CartContext";
+import Swal from "sweetalert2";
 
-export const ItemDetail = ({ description, image, price, stock, name }) => {
+export const ItemDetail = ({ id, name, description, image, price, stock }) => {
+    const { addItem } = useCart()
+
+    // Agregar productos al carrito
 
     const onAdd = (items) => {
-        alert(`Se agregaron ${items} al carrito`)
+        addItem({
+            id,
+            name,
+            description,
+            image,
+            price,
+        }, items)
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Agregado al carrito',
+            showConfirmButton: false,
+            timer: 1500,
+        })
     }
 
     return (

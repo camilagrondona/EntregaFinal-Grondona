@@ -1,32 +1,47 @@
-import { useEffect, useState } from "react"
-import { getProductById } from "../../asyncMock"
-import { ItemDetail } from "../ItemDetail/ItemDetail"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { db } from "../../config/firebaseConfig";;
+import { getDoc, doc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 export const ItemDetailContainer = () => {
+    const navigate = useNavigate()
     const { id } = useParams()
     const [item, setItem] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        setIsLoading(true)
+        const fetchData = async () => {
+            try {
+                const itemRef = doc(db, 'products', id)
+                const docSnap = await getDoc(itemRef)
 
-        getProductById(id)
-            .then((resp) => {
-                setItem(resp)
-                setIsLoading(false)
-            })
-            .catch((error) => {
-                console.log(error)
-                setIsLoading(false)
-            })
+                if (docSnap.exists()) {
+                    setItem({ id: docSnap.id, ...docSnap.data() })
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "El producto no existe",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            navigate("/")
+                        }
+                    })
+                }
+            } catch (error) {
+                console.error('Error')
+            }
+        }
 
-    }, [])
+        fetchData()
+    }, [id, navigate])
 
     return (
-
         <>
-            {isLoading ? <h2> Cargando detalles del producto...</h2> : item && <ItemDetail {...item} />}
+            <div className="container">
+                {item && <ItemDetail {...item} />}
+            </div>
         </>
     )
 }
