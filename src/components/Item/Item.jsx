@@ -28,7 +28,7 @@ export const Item = ({ id, name, image, description, price, stock }) => {
                         <h5 className="card-title display-6">{name}</h5>
                         <img src={image} alt="" className="img-fluid m-4" />
                         <p className="card-text">{description}</p>
-                        <b className="card-text">Precio: {price}</b>
+                        <b className="card-text">Precio: ${price}</b>
                         <ItemCount stock={stock} onAdd={onAdd} />
                         <Link to={`/item/${id}`}>
                             <button className="btn btn-outline-success m-4">Detalles</button>
