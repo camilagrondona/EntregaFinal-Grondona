@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import Swal from 'sweetalert2'; 
+import Swal from "sweetalert2"; 
 
 export const Cart = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const { cartItems, totalCartItems, removeItem, updateItemQuantity } = useContext(CartContext)
 
     //Confirmar q el carrito tenga productos
@@ -22,18 +22,18 @@ export const Cart = () => {
     }
 
     return (
-        <div>
+        <div className="container mt-5">
             <h2>Carrito</h2>
-            <div>
+            <div className="mb-4">
                 {cartItems.map((item) => (
-                    <div key={item.id}>
-                        <p>Nombre: {item.name}</p>
-                        <p>Precio unitario: ${item.price}</p>
-                        <p>Cantidad: {item.quantity}</p>
-                        <p>Subtotal: ${item.subTotal}</p>
-                        <div>
-                            <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>Agregar</button>
+                    <div key={item.id} className="border p-3 mb-3">
+                        <p className="mb-1">Nombre: {item.name}</p>
+                        <p className="mb-1">Precio unitario: ${item.price}</p>
+                        <p className="mb-1">Cantidad: {item.quantity}</p>
+                        <p className="mb-1">Subtotal: ${item.subTotal}</p>
+                        <div className="mb-2">
                             <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>Quitar</button>
+                            <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>Añadir</button>
                         </div>
                         <button onClick={() => removeItem(item.id)}>
                             Eliminar
@@ -41,7 +41,7 @@ export const Cart = () => {
                     </div>
                 ))}
             </div>
-            <p>Suma total del carrito ${totalCartItems}</p>
+            <p className="fw-bold">Suma total del carrito ${totalCartItems}</p>
 
             <button onClick={handleConfirmOrder}>Confirmar Compra</button>
         </div>

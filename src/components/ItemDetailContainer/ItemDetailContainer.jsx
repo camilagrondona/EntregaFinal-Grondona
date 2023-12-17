@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ItemDetail } from '../ItemDetail/ItemDetail';
-import { db } from "../../config/firebaseConfig";;
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { db } from "../../config/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
 import Swal from "sweetalert2";
 
