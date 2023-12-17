@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FirebaseContext } from "../../context/FirebaseContext";
 import { CartContext } from "../../context/CartContext";
-import { Form } from "../Form.jsx/Form";
+import { Form } from "../Form/Form";
 import Swal from "sweetalert2";
 
     export const Order = () => {
