@@ -113,7 +113,7 @@ export const Form = ({ cartItems }) => {
                 />
                 {emailError && <div className="invalid-feedback">{emailError}</div>} 
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary m-2">
                 Finalizar compra
             </button>
         </form>
@@ -121,12 +121,14 @@ export const Form = ({ cartItems }) => {
         {orderInfo && (
                 <div className="alert alert-success mt-3" role="alert">
                     <h4 className="alert-heading">Compra realizada con éxito</h4>
-                    <p>Tu orden con ID número {orderInfo.orderId} ha sido procesada. 
+                    <p>Tu orden con ID número {orderInfo.orderId} ha sido procesada.
+                    <br></br>
+                    <br></br>
                     Detalles de la compra:</p>
                     <ul>
                         {orderInfo.items.map((item) => (
                             <li key={item.id}>
-                                {item.name} - {item.quantity} x {item.price} = {item.quantity * item.price}
+                                {item.name} - {item.quantity} x ${item.price} = ${item.quantity * item.price}
                             </li>
                         ))}
                     </ul>

@@ -13,11 +13,11 @@ import Swal from "sweetalert2";
         surname: "",
         phone: "",
         email: "",
-    });
+    })
 
     const handlePlaceOrder = async () => {
         const orderId = await addOrderDB(cartItems, userData, totalCartItems)
-    
+    /////////////////////////////ESTA ALERTA NO ANDA//////////////////////////////
         Swal.fire({
             icon: 'success',
             title: 'Orden realizada con éxito',
@@ -37,7 +37,7 @@ import Swal from "sweetalert2";
 
     return (
         <div>
-            <h2>Datos del cliente</h2>
+            <h2 className="text-primary m-2">Datos del cliente</h2>
 
             <Form
                 userData={userData}

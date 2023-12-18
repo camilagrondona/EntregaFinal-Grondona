@@ -1,4 +1,3 @@
-import styles from "./container.module.css"
 import { collection, getDocs, query, where, doc, getDoc } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import {db} from "../../config/firebaseConfig";

@@ -31,7 +31,7 @@ export const ItemDetail = ({ id, name, description, image, price, stock }) => {
                     <h5 className="card-title">{name}</h5>
                     <img src={image} alt="" className="img-fluid m-4" />
                     <p className="card-text"> {description} </p>
-                    <b>Precio: {price} </b>
+                    <b>Precio: ${price} </b>
                     <div className="my-4">
                         <ItemCount stock={stock} onAdd={onAdd} />
                     </div>
