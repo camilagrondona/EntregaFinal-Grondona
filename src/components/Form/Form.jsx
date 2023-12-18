@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { FirebaseContext } from "../../context/FirebaseContext";
 import { CartContext } from "../../context/CartContext";
 
-export const Form = ({ cartItems }) => {
+export const Form = ({ cartItems, total }) => {
 
     const { addOrderDB } = useContext(FirebaseContext)
     const { totalCartItems } = useContext(CartContext)
@@ -30,6 +30,7 @@ export const Form = ({ cartItems }) => {
         setOrderInfo({
             orderId,
             items: cartItems,
+            total,
         })
 
         // Vaciar el formulario una vez enviada la información
@@ -132,6 +133,7 @@ export const Form = ({ cartItems }) => {
                             </li>
                         ))}
                     </ul>
+                    <b>Total de la compra: ${orderInfo.items.reduce((total, item) => total + item.quantity * item.price, 0)}</b>
                 </div>
             )}
         </div>
