@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import { FirebaseContext } from "../../context/FirebaseContext";
 import { CartContext } from "../../context/CartContext";
 import { Form } from "../Form/Form";
 
     export const Order = () => {
-        const { addOrderDB } = useContext(FirebaseContext)
         const { cartItems, totalCartItems } = useContext(CartContext)
 
     const [userData, setUserData] = useState({
