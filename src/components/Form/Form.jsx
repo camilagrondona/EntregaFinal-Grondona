@@ -5,7 +5,6 @@ import { CartContext } from "../../context/CartContext";
 export const Form = ({ cartItems, total }) => {
 
     const { addOrderDB } = useContext(FirebaseContext)
-    const { totalCartItems } = useContext(CartContext)
 
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
@@ -25,7 +24,7 @@ export const Form = ({ cartItems, total }) => {
         setEmailError("")
 
         const userData = { name, surname, phone, email }
-        const orderId = await addOrderDB(cartItems, userData, totalCartItems)
+        const orderId = await addOrderDB(cartItems, userData, total)
 
         setOrderInfo({
             orderId,
@@ -33,7 +32,6 @@ export const Form = ({ cartItems, total }) => {
             total,
         })
 
-        // Vaciar el formulario una vez enviada la información
         setName("")
         setSurname("")
         setPhone("")

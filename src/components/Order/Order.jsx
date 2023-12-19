@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { FirebaseContext } from "../../context/FirebaseContext";
 import { CartContext } from "../../context/CartContext";
 import { Form } from "../Form/Form";
-import Swal from "sweetalert2";
 
     export const Order = () => {
         const { addOrderDB } = useContext(FirebaseContext)
@@ -17,15 +16,6 @@ import Swal from "sweetalert2";
 
     const handlePlaceOrder = async () => {
         const orderId = await addOrderDB(cartItems, userData, totalCartItems)
-    /////////////////////////////ESTA ALERTA NO ANDA//////////////////////////////
-        Swal.fire({
-            icon: 'success',
-            title: 'Orden realizada con éxito',
-            showConfirmButton: false,
-            timer: 1500,
-        })
-    
-        console.log("Order ID:", orderId)
     }
 
     const handleFormChange = (e) => {

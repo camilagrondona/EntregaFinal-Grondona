@@ -1,47 +1,10 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, serverTimestamp, updateDoc, where } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp} from "firebase/firestore";
 import { createContext, useState } from "react";
 import { db } from "../config/firebaseConfig";
 
 export const FirebaseContext = createContext(null)
 
 export const FirebaseContextProvider = ({ children }) => {
-    const [products, setProducts] = useState([])
-    const [product, setProduct] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
-
-    const getProductsDB = (category) => {
-        const myProducts = category
-            ? query(collection(db, "products"), where("category", "==", category))
-            : query(collection(db, "products"))
-        getDocs(myProducts).then((resp) => {
-            if (resp.size === 0) {
-                console.log("No hay productos en la base de datos")
-            }
-            const productList = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-            setProducts(productList)
-            setIsLoading(false)
-        })
-    }
-
-    const getProductById = (id) => {
-        const productRef = doc(db, "products", id)
-        getDoc(productRef).then((resp) => {
-            // Verificar si el producto existe
-            if (resp.exists()) {
-                const prod = {
-                    id: resp.id,
-                    ...resp.data(),
-                }
-                setProduct(prod)
-            }
-        })
-    }
-
-    const discountStock = async (product) => {
-        const productRef = doc(db, "products", product.id)
-        const newStock = product.stock - 1
-        await updateDoc(productRef, { stock: newStock })
-    }
 
     const addOrderDB = async (cartItems, userData, total) => {
         const newOrder = {
@@ -50,19 +13,13 @@ export const FirebaseContextProvider = ({ children }) => {
             data: serverTimestamp(),
             total,
         }
-        console.log(newOrder)
+        console.log(newOrder) // para que el tutor / profesor pueda corroborar los datos que se están cargando en FireBase
         const orderRef = await addDoc(collection(db, "orders"), newOrder)
         return orderRef.id
     }
 
     const contextValue = {
-        products,
-        product,
-        isLoading,
-        getProductsDB,
-        getProductById,
-        discountStock,
-        addOrderDB,
+        addOrderDB
     }
 
     return <FirebaseContext.Provider value={contextValue}>{children}</FirebaseContext.Provider>
