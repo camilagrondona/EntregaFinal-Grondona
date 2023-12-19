@@ -14,10 +14,6 @@ import { Form } from "../Form/Form";
         email: "",
     })
 
-    const handlePlaceOrder = async () => {
-        const orderId = await addOrderDB(cartItems, userData, totalCartItems)
-    }
-
     const handleFormChange = (e) => {
         setUserData({
             ...userData,
@@ -32,7 +28,6 @@ import { Form } from "../Form/Form";
             <Form
                 userData={userData}
                 onFormChange={handleFormChange}
-                onPlaceOrder={handlePlaceOrder}
                 cartItems={cartItems}
                 total={totalCartItems}
             />

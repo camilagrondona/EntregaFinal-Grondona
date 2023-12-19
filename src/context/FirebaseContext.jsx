@@ -1,5 +1,5 @@
 import { addDoc, collection, serverTimestamp} from "firebase/firestore";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { db } from "../config/firebaseConfig";
 
 export const FirebaseContext = createContext(null)

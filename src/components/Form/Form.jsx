@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { FirebaseContext } from "../../context/FirebaseContext";
-import { CartContext } from "../../context/CartContext";
 
 export const Form = ({ cartItems, total }) => {
 
@@ -118,8 +117,8 @@ export const Form = ({ cartItems, total }) => {
         </form>
 
         {orderInfo && (
-                <div className="alert alert-success mt-3" role="alert">
-                    <h4 className="alert-heading">Compra realizada con éxito</h4>
+                <div className="alert alert-success mt-3" role="alert" style={{ width: "40%" }}>
+                    <h4 className="alert-heading">¡Compra realizada con éxito!</h4>
                     <p>Tu orden con ID número {orderInfo.orderId} ha sido procesada.
                     <br></br>
                     <br></br>
