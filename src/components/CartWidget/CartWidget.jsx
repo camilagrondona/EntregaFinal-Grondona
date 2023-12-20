@@ -7,7 +7,7 @@ export const CartWidget = () => {
     return (
             <div className="d-flex">
                 <BsCart3 color="#58ACFA" size={30} />
-                <span>({totalQuantity})</span>
+                <span className="text-dark">({totalQuantity})</span>
             </div>
     )
 }
