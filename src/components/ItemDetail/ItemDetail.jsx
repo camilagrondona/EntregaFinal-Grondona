@@ -25,7 +25,7 @@ export const ItemDetail = ({ id, name, description, image, price, stock }) => {
     }
 
     return (
-        <div className="border m-2">
+        <div className="m-2">
             <div className="card mx-auto" style={{ width: "50%" }}>
                 <div className="card-body text-center">
                     <h5 className="card-title">{name}</h5>
