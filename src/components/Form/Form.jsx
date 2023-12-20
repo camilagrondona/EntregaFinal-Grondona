@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { FirebaseContext } from "../../context/FirebaseContext";
+import { CartContext } from "../../context/CartContext";
 
 export const Form = ({ cartItems, total }) => {
 
     const { addOrderDB } = useContext(FirebaseContext)
+    const { clearCartItems, setTotalQuantity } = useContext(CartContext)
 
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
@@ -30,6 +32,9 @@ export const Form = ({ cartItems, total }) => {
             items: cartItems,
             total,
         })
+
+        clearCartItems()
+        setTotalQuantity(0)
 
         setName("")
         setSurname("")
