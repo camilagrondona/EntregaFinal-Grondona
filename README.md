@@ -23,7 +23,7 @@
 [![Carrito](https://i.imgur.com/hw6DZmP.jpg "Carrito")](http://https://i.imgur.com/hw6DZmP.jpg "Carrito")
 [![Formulario checkout](https://i.imgur.com/u19Xst3.jpg "Formulario checkout")](http://https://i.imgur.com/u19Xst3.jpg "Formulario checkout")
 ## Datos de contacto 
-- Linkedin: [Linkedin](http://https://www.linkedin.com/in/camila-grondona-127603203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "Linkedin")
+- [Linkedin](https://www.linkedin.com/in/camila-grondona-127603203/ "Linkedin")
 - Correo electrónico: grondonacamila@gmail.com
 
 Proyecto realizado en el curso de React de CoderHouse, comisión #60995.
