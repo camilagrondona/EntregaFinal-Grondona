@@ -5,9 +5,8 @@ import Swal from "sweetalert2";
 
 export const Cart = () => {
     const navigate = useNavigate()
-    const { cartItems, totalCartItems, removeItem, updateItemQuantity } = useContext(CartContext)
+    const { cartItems, totalCartItems, removeItem, updateItemQuantity, clearCartItems } = useContext(CartContext)
 
-    //Confirmar q el carrito tenga productos
     const handleConfirmOrder = () => {
         if (cartItems.length === 0) {
             Swal.fire({
@@ -19,6 +18,10 @@ export const Cart = () => {
         } else {
             navigate("/confirmar-compra")
         }
+    }
+
+    const handleEmptyCart = () => {
+        clearCartItems()
     }
 
     return (
@@ -43,6 +46,10 @@ export const Cart = () => {
             
             <h3 className="fw-bold m-2">Suma total del carrito ${totalCartItems}</h3>
             <button className="btn btn-primary mx-auto m-2" style={{ width: "20%" }} onClick={handleConfirmOrder}>Confirmar Compra</button>
+
+            <button className="btn btn-danger mx-auto m-2" style={{ width: "20%" }} onClick={handleEmptyCart}>
+                    Vaciar Carrito
+                </button>
         </div>
     )
 }
