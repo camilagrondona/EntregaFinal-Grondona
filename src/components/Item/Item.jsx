@@ -22,7 +22,7 @@ export const Item = ({ id, name, image, description, price, stock }) => {
     }
 
     return (
-            <div className="border m-2">
+            <div className="m-2">
                 <div className="card mx-auto" style={{ width: "50%" }}>
                     <div className="card-body text-center">
                         <h5 className="card-title display-6">{name}</h5>
