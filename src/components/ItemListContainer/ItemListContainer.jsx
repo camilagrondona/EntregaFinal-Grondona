@@ -1,12 +1,10 @@
 import { collection, getDocs, query, where, doc, getDoc } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {db} from "../../config/firebaseConfig";
-import { CartContext } from "../../context/CartContext";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
-    const { totalQuantity } = useContext(CartContext)
     const { category } = useParams()
 
     const [products, setProducts] = useState([])
