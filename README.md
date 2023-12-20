@@ -1,5 +1,4 @@
-# Nombre del proyecto
-#### Friki Planet
+# Friki Planet
 [![Logo Friki planet](https://i.imgur.com/PPeF7lc.png "Logo Friki planet")](http://https://i.imgur.com/PPeF7lc.png "Logo Friki planet")
 ## Descripción del proyecto
 #####  Friki Planet es un e-commerce dedicado a la venta de Funko Pops (figuras con un diseño peculiar, basadas en el concepto japonés chibi de estilo animado, tienen cuerpos reducidos y cabezas grandes en comparación con el cuerpo. Estos muñecos cabezones representan personajes de cómics, de Disney, series de TV, películas o incluso personas reales). 
